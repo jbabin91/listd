@@ -1,16 +1,61 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgres"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id   String @id @default(cuid())
-  name String
+  id        String   @id @default(nanoid())
+  username  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Feed      Feed[]
+}
+
+model Feed {
+  id          String     @id @default(nanoid())
+  name        String
+  description String?
+  visibility  Visibility
+  userId      String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  creator     User       @relation(fields: [userId], references: [id])
+  FeedItem    FeedItem[]
+}
+
+model FeedItem {
+  id             String       @id @default(nanoid())
+  name           String
+  description    String?
+  feedItemMetaId String
+  feedId         String
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  Feed           Feed         @relation(fields: [feedId], references: [id])
+  meta           FeedItemMeta @relation(fields: [feedItemMetaId], references: [id])
+}
+
+model FeedItemMeta {
+  id         String       @id @default(nanoid())
+  name       String
+  originId   String
+  type       FeedItemType
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  feedItemId String
+  FeedItem   FeedItem[]
+}
+
+enum Visibility {
+  Public
+  Unlisted
+  Private
+}
+
+enum FeedItemType {
+  YouTubeChannel
 }
