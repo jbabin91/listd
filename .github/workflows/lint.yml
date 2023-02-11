@@ -1,0 +1,30 @@
+name: Run Lint
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [18]
+    steps:
+      - uses: actions/checkout@v3.3.0
+      - uses: pnpm/action-setup@v2.2.4
+        with:
+          version: 7
+      - name: Use Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+        uses: actions/setup-node@v3.6.0
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: pnpm install and lint
+        run: |
+          pnpm install
+          pnpm lint
+        # pnpm test
+        env:
+          CI: true
