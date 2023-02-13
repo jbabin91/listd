@@ -31,7 +31,7 @@
     Son of a gun. Don't be bashful drop me a line. Be brave. It's all a game of angles. And I will
     hypnotize that just a little bit.
   </p>
-  <div class="flex justify-end my-4">
+  <div class="my-4 flex justify-end">
     <button class="btn btn-filled-success btn-base">Lets Go!</button>
   </div>
 </form>

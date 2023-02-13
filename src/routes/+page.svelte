@@ -2,7 +2,7 @@
   import { BrandYoutube } from 'tabler-icons-svelte';
 </script>
 
-<div class="p-4 hero-container flex flex-col justify-center items-center">
+<div class="hero-container flex flex-col items-center justify-center p-4">
   <p class="my-4">
     I can't think of anything more rewarding than being able to express yourself to others through
     painting. In nature, dead trees are just as normal as live trees. We don't really know where
