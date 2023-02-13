@@ -2,8 +2,6 @@
   "name": "listd",
   "version": "0.0.1",
   "private": true,
-  "type": "module",
-  "license": "MIT",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -52,5 +50,26 @@
     "typescript": "^4.9.5",
     "vite": "^4.1.1",
     "vitest": "^0.25.8"
-  }
+  },
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "npm": "Please use pnpm instead of npm.",
+    "yarn": "Please use pnpm instead of yarn.",
+    "pnpm": ">=7.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/jbabin91/listd/issues"
+  },
+  "author": "Jace Babin",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jbabin91/listd.git"
+  },
+  "keywords": [
+    "listd",
+    "svelte",
+    "typescript",
+    "tailwindcss"
+  ]
 }
