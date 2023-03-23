@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "vite dev",
+    "dev": "npm-run-all --parallel vite typesafe-i18n",
+    "vite": "vite dev --open",
     "build": "vite build",
     "preview": "vite preview",
     "test": "playwright test",
@@ -17,16 +18,17 @@
     "prisma:push": "npx prisma db push",
     "prisma:pull": "npx prisma db pull",
     "prisma:studio": "npx prisma studio",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "typesafe-i18n": "typesafe-i18n"
   },
   "dependencies": {
     "@prisma/client": "^4.11.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.32.0",
+    "@playwright/test": "^1.28.1",
     "@skeletonlabs/skeleton": "^0.92.2",
-    "@sveltejs/adapter-auto": "^1.0.3",
-    "@sveltejs/kit": "^1.13.0",
+    "@sveltejs/adapter-auto": "^1.0.0",
+    "@sveltejs/kit": "^1.0.0",
     "@tailwindcss/forms": "^0.5.3",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
@@ -37,9 +39,11 @@
     "eslint-config-prettier": "^8.8.0",
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-import-no-duplicates-prefix-resolved-path": "^2.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-svelte": "^2.22.0",
     "husky": "^8.0.3",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
     "postcss-load-config": "^4.0.1",
     "prettier": "^2.8.6",
@@ -54,6 +58,7 @@
     "tabler-icons-svelte": "^1.10.0",
     "tailwindcss": "^3.2.7",
     "tslib": "^2.5.0",
+    "typesafe-i18n": "^5.20.0",
     "typescript": "^4.9.5",
     "vite": "^4.2.1",
     "vitest": "^0.25.8"
