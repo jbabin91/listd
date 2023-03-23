@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { AppBar, AppShell, LightSwitch } from '@skeletonlabs/skeleton';
   import '@skeletonlabs/skeleton/styles/all.css';
   import '@skeletonlabs/skeleton/themes/theme-crimson.css';

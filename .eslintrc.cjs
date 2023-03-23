@@ -9,7 +9,7 @@ module.exports = {
     'airbnb-typescript/base',
     'plugin:prettier/recommended',
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'import-no-duplicates-prefix-resolved-path'],
   ignorePatterns: ['src/lib/i18n/*.ts'],
   overrides: [
     {
@@ -17,6 +17,10 @@ module.exports = {
       parser: 'svelte-eslint-parser',
       parserOptions: {
         parser: '@typescript-eslint/parser',
+      },
+      rules: {
+        'import/no-named-as-default': 'off',
+        'import/no-named-as-default-member': 'off',
       },
     },
   ],
@@ -33,7 +37,7 @@ module.exports = {
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': ['.cjs', '.js', '.ts', '.svelte'],
+      '@typescript-eslint/parser': ['.cjs', '.js', '.ts'],
     },
     'import/resolver': {
       typescript: {
@@ -55,5 +59,13 @@ module.exports = {
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-mutable-exports': 'off',
+    'import/no-duplicates': 'off',
+    'import-no-duplicates-prefix-resolved-path/no-duplicates': [
+      'error',
+      {
+        prefixResolvedPathWithImportName: true,
+      },
+    ],
+    'no-restricted-imports': ['error', { paths: ['$env/static/private'] }],
   },
 };
