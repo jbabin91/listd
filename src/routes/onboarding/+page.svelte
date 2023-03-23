@@ -1,24 +1,14 @@
 <script lang="ts">
-  import { enhance } from '$app/forms';
   import { FileButton } from '@skeletonlabs/skeleton';
+  // TODO: fix $app import error with eslint
+  // eslint-disable-next-line import/no-unresolved
+  import { enhance } from '$app/forms';
+
   let files: FileList;
 </script>
 
 <p>Everyone needs a friend. Friends are the most valuable things in the world.</p>
-<form
-  class="pt-4"
-  method="POST"
-  use:enhance={({ form, data, action, cancel }) => {
-    return async ({ result, update }) => {
-      console.log('form', form);
-      console.log('data', data);
-      console.log('action', action);
-      console.log('cancel', cancel);
-      console.log('result', result);
-      console.log('update', update);
-    };
-  }}
->
+<form class="pt-4" method="POST" use:enhance={() => async () => {}}>
   <label for="name">
     <span>Username</span>
     <input type="text" id="username" value="w3cj" minlength="4" required />
@@ -32,6 +22,6 @@
     hypnotize that just a little bit.
   </p>
   <div class="my-4 flex justify-end">
-    <button class="btn btn-filled-success btn-base">Lets Go!</button>
+    <button class="btn btn-base btn-filled-success">Lets Go!</button>
   </div>
 </form>

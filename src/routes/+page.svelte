@@ -8,7 +8,7 @@
     painting. In nature, dead trees are just as normal as live trees. We don't really know where
     this goes - and I'm not sure we really care.
   </p>
-  <a href="/onboarding" class="btn btn-filled-primary btn-base cursor-pointer">
+  <a href="/onboarding" class="btn btn-base btn-filled-primary cursor-pointer">
     Sign up with YouTube <BrandYoutube class="ml-1" size={36} strokeWidth={1} />
   </a>
 </div>
